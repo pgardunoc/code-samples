@@ -1,0 +1,13 @@
+{
+  "name": "monte-carlo-tournament-sim",
+  "version": "1.0.0",
+  "description": "A minimal Elo + Poisson + Monte Carlo tournament simulator.",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
