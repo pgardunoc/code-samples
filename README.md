@@ -15,8 +15,7 @@ engineering — and honest AI-assisted engineering — at
 | Example | What it shows |
 |---|---|
 | [monte-carlo-tournament-sim](./monte-carlo-tournament-sim) | Elo + Poisson + 10,000-run Monte Carlo tournament odds. The engine behind [JetLag XI](https://www.jetlagxi.com). |
-
-*More on the way.*
+| [idempotent-rebuild-vs-merge](./idempotent-rebuild-vs-merge) | Two overlapping cron runs fought over a generated file. Fix the race by rebuilding instead of merging — runnable, fails then succeeds. |
 
 ## How these are built
 
