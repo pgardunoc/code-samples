@@ -1,0 +1,37 @@
+# Illustrative only — this is the setup that produced the race.
+#
+# GitHub Actions cron is not punctual; under load it lags 15–60 min. Firing
+# twice an hour means the ":10" run can still be running when the ":40" run
+# starts, so two copies of this job overlap and both try to publish the same
+# snapshot. See the README.
+name: refresh-data
+
+on:
+  schedule:
+    - cron: "10,40 * * * *"
+  workflow_dispatch:
+
+# A concurrency key is the other guardrail (see the README's tradeoffs). It
+# serializes runs instead of letting them overlap. It is complementary to the
+# rebuild-and-retry fix, not a replacement — with a queue, a lagging run can
+# still publish stale numbers on top of fresher ones, which is the exact thing
+# rebuild-on-fresh-main avoids.
+#
+# concurrency:
+#   group: refresh-data
+#   cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # The fix: rebuild-and-retry instead of merging generated output.
+      - run: bash publish-fixed.sh

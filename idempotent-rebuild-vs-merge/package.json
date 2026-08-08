@@ -1,0 +1,10 @@
+{
+  "name": "idempotent-rebuild-vs-merge",
+  "version": "1.0.0",
+  "description": "Fixing a cron race condition by rebuilding generated data instead of merging it.",
+  "type": "module",
+  "scripts": {
+    "start": "bash demo.sh fixed",
+    "broken": "bash demo.sh broken"
+  }
+}
