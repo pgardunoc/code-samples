@@ -16,6 +16,7 @@ also write about engineering, including the honest side of working with AI, at
 |---|---|
 | [monte-carlo-tournament-sim](./monte-carlo-tournament-sim) | Elo plus Poisson plus a 10,000-run Monte Carlo to get tournament odds. The engine behind [JetLag XI](https://www.jetlagxi.com). |
 | [idempotent-rebuild-vs-merge](./idempotent-rebuild-vs-merge) | Two overlapping cron runs fought over a generated file. The fix was to rebuild the data instead of merging it. Runnable: watch it fail, then succeed. |
+| [deterministic-stack-engine](./deterministic-stack-engine) | A falling-blocks game as one pure `tick(state, input)` with the RNG in the state, so seed + inputs replay byte-for-byte. Buys headless tests, a shared daily puzzle, and replays. The core of [STACK.TXT](https://stack-game-two.vercel.app). Playable in your terminal. |
 
 ## How these are built
 
